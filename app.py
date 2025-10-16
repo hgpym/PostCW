@@ -69,6 +69,6 @@ def pickup(order_id):
         return jsonify({"ok": True})
     return jsonify({"error": "not found"}), 404
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+#if __name__ == "__main__":
+    #app.run(host="0.0.0.0", port=5000, debug=True)
     #app.run(host="0.0.0.0", port=5000, debug=True, ssl_context=("cert.pem", "key.pem"))  # Убедитесь, что у вас есть cert.pem и key.pem
