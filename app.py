@@ -36,10 +36,10 @@ def create_order():
 def get_products():
     # Пример данных (можно заменить на запрос к базе)
     products = [
-        {"id": 1, "name": "Пончики"},
-        {"id": 2, "name": "Wi-Fi USB адаптер"},
+        {"id": 1, "name": "Donuts"},
+        {"id": 2, "name": "Wi-Fi USB Adapter"},
         {"id": 3, "name": "Arduino Uno Rev3"},
-        {"id": 4, "name": "Клаб-сэндвич с карбонадом"},
+        {"id": 4, "name": "Club Sandwich with Carbonade"},
         {"id": 5, "name": "iPhone 16e"},
         {"id": 6, "name": "Velodyne VLP 16"}
     ]
@@ -69,6 +69,6 @@ def pickup(order_id):
         return jsonify({"ok": True})
     return jsonify({"error": "not found"}), 404
 
-#if __name__ == "__main__":
-    #app.run(host="0.0.0.0", port=5000, debug=True)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)
     #app.run(host="0.0.0.0", port=5000, debug=True, ssl_context=("cert.pem", "key.pem"))  # Убедитесь, что у вас есть cert.pem и key.pem

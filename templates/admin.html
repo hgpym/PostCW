@@ -5,16 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FutureLab Admin</title>
   <link rel="stylesheet" href="/static/css/admin.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 </head>
 <body>
   <div id="admin-view" class="admin">
-    <h1>Админ-панель</h1>
-    <button id="scan-order">Получить заказ</button>
-    <div id="reader" class="hidden"></div>
-    <p id="admin-msg"></p>
-    <p><a href="/">Вернуться на сайт</a></p>
+    <div class="admin-layout">
+      <div class="admin-left">
+        <img src="/static/resources/logo.png" alt="FutureLab Logo" class="admin-logo">
+        <!--<h1 class="admin-title">Панель администратора</h1>-->
+        <button id="scan-order" class="admin-btn">
+          <img src="/static/resources/box.svg" alt="box" class="btn-icon">
+          Get Package
+        </button>
+        <div id="reader" class="hidden"></div>
+        <p id="admin-msg"></p>
+        <div id="product-card"></div>
+      </div>
+      <div class="admin-right">
+        <div class="flight-map-label">Flight map</div>
+        <div id="flight-map"></div>
+      </div>
+    </div>
+    <!--
+    <a href="/" class="back-btn">
+      <img src="/static/resources/arrow-left.svg" alt="arrow left" class="back-icon">
+      Вернуться на сайт
+    </a>
+    -->
   </div>
 
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
   <script src="/static/js/admin.js"></script>
 </body>

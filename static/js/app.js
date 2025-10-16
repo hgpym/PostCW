@@ -1,9 +1,9 @@
 // Данные товаров
 const products = [
-  { id: 1, name: 'Пончики', img: 'static/resources/product1.png' },
-  { id: 2, name: 'Wi-Fi USB адаптер', img: 'static/resources/product2.png' },
+  { id: 1, name: 'Donuts', img: 'static/resources/product1.png' },
+  { id: 2, name: 'Wi-Fi USB Adapter', img: 'static/resources/product2.png' },
   { id: 3, name: 'Arduino Uno Rev3', img: 'static/resources/product3.png' },
-  { id: 4, name: 'Клаб-сэндвич с карбонадом', img: 'static/resources/product4.png' },
+  { id: 4, name: 'Club Sandwich with Carbonade', img: 'static/resources/product4.png' },
   { id: 5, name: 'iPhone 16e', img: 'static/resources/product5.png' },
   { id: 6, name: 'Velodyne VLP 16', img: 'static/resources/product6.png' }
 ];
@@ -55,18 +55,18 @@ function initMap() {
 const points = [
   {
     coords: [56.834717, 60.791897],
-    popup: "Технопарк<br>улица Конструкторов, 5, Екатеринбург, Свердловская область, 620010",
-    address: "ул. Конструкторов, 5"
+    popup: "Technopark<br>5 Constructorov Street, Yekaterinburg, Sverdlovsk region, 620010",
+    address: "st. Constructorov, 5"
   },
   {
     coords: [56.842950, 60.698256],
-    popup: "Дом, строительный гипермаркет<br>улица Владимира Высоцкого, 50, Екатеринбург, Свердловская область, 620072",
-    address: "ул. Владимира Высоцкого, 50"
+    popup: "Dom, construction hypermarket<br>Vladimir Vysotsky Street, 50, Yekaterinburg, Sverdlovsk region, 620072",
+    address: "st. Vladimira Vysotskogo, 50"
   },
   {
     coords: [56.798093, 60.764444],
-    popup: "Латвийская улица, 54, Екатеринбург, Свердловская область, 620007",
-    address: "Латвийская ул., 54"
+    popup: "Latvian street, 54, Yekaterinburg, Sverdlovsk region, 620007",
+    address: "st. Latvijskaya, 54"
   }
 ];
 
@@ -75,7 +75,7 @@ points.forEach(p => {
   const marker = L.marker(p.coords).addTo(map);
   const popupContent = `
     ${p.popup}<br>
-    <button onclick="selectPointAndOrder([${p.coords}], '${p.address}')">Сделать заказ</button>
+    <button onclick="selectPointAndOrder([${p.coords}], '${p.address}')">Place Order</button>
   `;
   marker.bindPopup(popupContent);
 });
@@ -99,10 +99,10 @@ points.forEach(p => {
   pos => {
     const { latitude, longitude } = pos.coords;
     const userMarker = L.marker([latitude, longitude], { icon: userIcon }).addTo(map);
-    userMarker.bindPopup("Вы здесь").openPopup();
+    userMarker.bindPopup("You are here").openPopup();
   },
   err => {
-    console.error("Ошибка при получении геолокации:", err.message);
+    console.error("Error getting location:", err.message);
   }
 );
 
@@ -120,13 +120,13 @@ async function selectPointAndOrder(pt, address) {
   document.getElementById('delivery-point').textContent = address;
 
   if (!selectedProduct) {
-    alert("Сначала выберите товар!");
+    alert("Please select a product first!");
     return;
   }
 
   document.getElementById('map').classList.add('hidden');
 
-  document.getElementById('status-text').textContent = 'Заказ обрабатывается...';
+  document.getElementById('status-text').textContent = 'The order is being processed...';
   document.getElementById('status-section').classList.remove('hidden');
 
   const res = await fetch('/api/order', {
@@ -158,7 +158,7 @@ document.getElementById('start-order').onclick = startOrder;
 
 async function startOrder() {
   // спрячем кнопку, покажем статус
-  document.getElementById('status-text').textContent = 'Заказ обрабатывается...';
+  document.getElementById('status-text').textContent = 'The order is being processed...';
   document.getElementById('status-section').classList.remove('hidden');
 
   // 1) создаём заказ на сервере
@@ -222,12 +222,12 @@ function startTimer(orderId) {
 
     if (elapsed === Math.floor(total / 2)) {
       // Через половину времени меняем статус на "Заказ уже летит в постамат..."
-      document.getElementById('status-text').textContent = 'Заказ уже летит в постамат...';
+      document.getElementById('status-text').textContent = 'The order is already on its way to the post office...';
     }
 
     if (elapsed >= total) {
     clearInterval(interval);
-    document.getElementById('status-text').textContent = 'Заказ прибыл в постамат! Можете его забрать.';
+    document.getElementById('status-text').textContent = 'The order has arrived at the post office! You can pick it up.';
     
     // Показываем QR и информацию
     const qrDiv = document.getElementById('qrcode');
@@ -290,8 +290,8 @@ function setupAdmin() {
       const product = products.find(p => p.id == order.productId);
       document.getElementById('admin-msg').textContent =
         product
-          ? `Товар получен: ${product.name}`
-          : `Заказ ${decoded} принят`;
+          ? `The product has been received: ${product.name}`
+          : `Order ${decoded} accepted`;
       await scanner.clear();
     }, err => {});
   };
