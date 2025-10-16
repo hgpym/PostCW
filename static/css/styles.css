@@ -284,9 +284,49 @@ body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
   font-size: 16px;
 }
 
+
+
 .delivery-info strong {
+
   color: #3b5cb8;
+
 }
+
+
+
+.admin-link {
+
+  position: fixed;
+
+  bottom: 10px;
+
+  right: 10px;
+
+  width: 40px;
+
+  height: 40px;
+
+  background-color: #f0f0f0;
+
+  border-radius: 50%;
+
+  text-align: center;
+
+  line-height: 40px;
+
+  color: #333;
+
+  font-size: 20px;
+
+  text-decoration: none;
+
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+  z-index: 1000;
+
+}
+
+
 
 
 
