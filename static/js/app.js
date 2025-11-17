@@ -46,13 +46,19 @@ function chooseProduct(p) {
 
 function initMap() {
   if (!map) {
-    map = L.map('map').setView([56.834717, 60.791897], 11);
+    //map = L.map('map').setView([56.834717, 60.791897], 11);
+    map = L.map('map').setView([24.72370426434906, 54.74809715799046], 11);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
   // В данных точек добавим поле address
 const points = [
+  {
+    coords: [24.72370426434906, 54.74809715799046],
+    popup: "KEZAD Logistics Park Phase 4 Extension (KLP4 Expansion)",
+    address: "PPCX+Q49 - Al Ma`Mourah - KHIA 5 - Abu Dhabi - ОАЭ"
+  },
   {
     coords: [56.834717, 60.791897],
     popup: "Technopark<br>5 Constructorov Street, Yekaterinburg, Sverdlovsk region, 620010",

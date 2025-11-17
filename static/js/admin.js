@@ -88,7 +88,8 @@ window.onload = function() {
   setupAdmin();
   // Карта полетов справа
   if (document.getElementById('flight-map')) {
-    var map = L.map('flight-map').setView([56.834717, 60.791897], 16);
+    //var map = L.map('flight-map').setView([56.834717, 60.791897], 16);
+    var map = L.map('flight-map').setView([24.663959932963703, 54.76920351627734], 11);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
@@ -106,7 +107,9 @@ window.onload = function() {
       popupAnchor: [0, -24]
     });
     // Маркеры дронов
-    L.marker([56.835602, 60.792852], {icon: drone1Icon}).addTo(map).bindPopup('Дрон 1');
-    L.marker([56.832758, 60.794864], {icon: drone2Icon}).addTo(map).bindPopup('Дрон 2');
+    //L.marker([56.835602, 60.792852], {icon: drone1Icon}).addTo(map).bindPopup('Дрон 1');
+    L.marker([24.663959932963703, 54.76920351627734], {icon: drone1Icon}).addTo(map).bindPopup('Drone 1');
+    L.marker([24.72370426434906, 54.74809715799046], {icon: drone1Icon}).addTo(map).bindPopup('Drone 2');
+    //L.marker([56.832758, 60.794864], {icon: drone2Icon}).addTo(map).bindPopup('Дрон 2');
   }
 };
